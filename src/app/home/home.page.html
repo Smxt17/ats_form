@@ -18,29 +18,26 @@
 
       <ion-item fill="outline" shape="round" >
         <ion-label position="floating"> Name </ion-label>
-        <ion-input  type="text" placeholder="Enter Name" required ></ion-input>
+        <ion-input  type="text" placeholder="Enter Name"  name="name" required [(ngModel)]="details.Name"></ion-input>
       </ion-item>
 
       <ion-item fill="outline" shape="round" >
         <ion-label position="floating"> Email </ion-label>
-        <ion-input  type="email" placeholder="Enter Email" required ></ion-input>
+        <ion-input  type="email" placeholder="Enter Email"  name="email" required  [(ngModel)]="details.Email"></ion-input>
       </ion-item>
 
       <ion-item fill="outline" shape="round" >
         <ion-label position="floating"> Age </ion-label>
-        <ion-input  type="tel" maxlength="3" placeholder="Enter Age" required></ion-input>
+        <ion-input  type="tel" maxlength="3" placeholder="Enter Age" name="age" required [(ngModel)]="details.Age"></ion-input>
       </ion-item>
 
       <ion-item fill="outline" shape="round" >
         <ion-label position="floating"> Gender </ion-label>
-        <ion-input placeholder="Enter Gender" type="text" required></ion-input>
+        <ion-input placeholder="Enter Gender" type="text" name="gender" required [(ngModel)]="details.Gender"></ion-input>
       </ion-item>
 
       <ion-buttons shape="round"  >
         <ion-button (click)="onCreate()" fill="solid"  shape="round"  color="dark">create</ion-button>
-        <ion-button (click)="onUpdate()" fill="solid"  shape="round"  color="dark">update</ion-button>
-        <ion-button (click)="onDelete()" fill="solid"  shape="round"  color="dark">delete</ion-button>
-
       </ion-buttons>
 
 
@@ -49,12 +46,14 @@
 
   </ion-card>
 
-  <ion-card *ngFor="let item of list" (click)="selectedcard=item.Id ; collapsed=!collapsed" color="tertiary" class="ion-text-center " >
+  <ion-card *ngFor="let item of list " (click)="selectedcard=item.Id ; collapsed=!collapsed" color="tertiary" class="ion-text-center " >
     <ion-card-header> {{item.Name}}</ion-card-header>
     <ion-card-content *ngIf="item.Id === selectedcard && !collapsed">
       {{item.Email}}<br>
       {{item.Gender}}<br>
       {{item.Age}}<br>
+      <ion-button (click)="onUpdate(item.Id)" fill="solid"  shape="round"  color="dark">update</ion-button><br>
+      <ion-button (click)="onDelete(item.Id)" fill="solid"  shape="round"  color="dark">delete</ion-button>
     </ion-card-content>
   </ion-card>
 
