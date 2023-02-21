@@ -13,6 +13,7 @@ export class HomePage {
   baseUrl='https://ddc3-116-72-9-56.in.ngrok.io/api/users';
    list :any;
 
+
   constructor(private http:HttpClient,private api:HTTP) {
 
   }
@@ -25,6 +26,7 @@ export class HomePage {
 
   }
   onUpdate(){
+    this.http.post()
 
   }
 
