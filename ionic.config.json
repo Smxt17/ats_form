@@ -1,5 +1,7 @@
 {
   "name": "ats_form",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "angular"
 }

@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import {HttpClient} from '@angular/common/http'
+import { HTTP } from "@ionic-native/http/ngx";
 
 @Component({
   selector: 'app-home',
@@ -6,7 +8,37 @@ import { Component } from '@angular/core';
   styleUrls: ['home.page.scss'],
 })
 export class HomePage {
+  baseUrl='https://ddc3-116-72-9-56.in.ngrok.io/api/users';
+   list :any;
 
-  constructor() {}
+  constructor(private http:HttpClient,private api:HTTP) {
 
+  }
+
+
+  onDelete(){
+
+  }
+  onCreate(){
+
+  }
+  onUpdate(){
+
+  }
+
+     async onLoad(){
+      const option={
+        headers:{
+          'Content-Type':'application/json'
+        }
+      }
+      this.api.setHeader('Access-Control-Allow-Origin','https://ddc3-116-72-9-56.in.ngrok.io/api/users','');
+      await this.api.get(this.baseUrl,{},{'Content-Type':'application/json'}).then(res=>{
+
+        this.list=res
+      this.list=JSON.parse(this.list)
+      console.log(this.list)
+
+      })
+    }
 }
