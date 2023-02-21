@@ -10,6 +10,13 @@ import { HTTP } from "@ionic-native/http/ngx";
 export class HomePage {
   selectedcard!:any;
   collapsed=true;
+  details={
+    Name:'',
+    Email:'',
+    Age:'',
+    Gender:'',
+    
+  }
   baseUrl='https://ddc3-116-72-9-56.in.ngrok.io/api/users';
    list :any;
 
