@@ -28,16 +28,15 @@ export class HomePage {
 
      async onLoad(){
       const option={
-        headers:{
           'Content-Type':'application/json'
-        }
+
       }
       this.api.setHeader('Access-Control-Allow-Origin','https://ddc3-116-72-9-56.in.ngrok.io/api/users','');
-      await this.api.get(this.baseUrl,{},{'Content-Type':'application/json'}).then(res=>{
-
+      await this.api.get(this.baseUrl,{},option).then(res=>{
         this.list=res
-      this.list=JSON.parse(this.list)
-      console.log(this.list)
+        console.log(res)
+        this.list=JSON.parse(this.list['data'])
+        console.log(this.list)
 
       })
     }

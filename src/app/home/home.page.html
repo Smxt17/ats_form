@@ -46,4 +46,23 @@
     <ion-button (click)="onLoad()"> Load </ion-button>
 
   </ion-card>
+
+  <ion-grid class="scroll" >
+    <ion-row>
+      <ion-col>ID</ion-col>
+      <ion-col>Name</ion-col>
+      <ion-col>Email</ion-col>
+      <ion-col>Gender</ion-col>
+      <ion-col>AGE</ion-col>
+      <ion-col>Join Date</ion-col>
+    </ion-row>
+    <ion-row *ngFor="let item of list">
+      <ion-col>{{item.Id}}</ion-col>
+      <ion-col>{{item.Name}}</ion-col>
+      <ion-col>{{item.Email}}</ion-col>
+      <ion-col>{{item.Gender}}</ion-col>
+      <ion-col>{{item.Age}}</ion-col>
+      <ion-col>{{item.JoinDate}}</ion-col>
+    </ion-row>
+  </ion-grid>
 </ion-content>
