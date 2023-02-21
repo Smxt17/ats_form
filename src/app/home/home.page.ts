@@ -8,6 +8,8 @@ import { HTTP } from "@ionic-native/http/ngx";
   styleUrls: ['home.page.scss'],
 })
 export class HomePage {
+  selectedcard!:any;
+  collapsed=true;
   baseUrl='https://ddc3-116-72-9-56.in.ngrok.io/api/users';
    list :any;
 

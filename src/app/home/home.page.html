@@ -1,9 +1,11 @@
 <ion-header >
+  <script src="cordova.js"></script>
   <ion-toolbar>
     <ion-title class="ion-text-center">
       Applicant Form
     </ion-title>
   </ion-toolbar>
+
 </ion-header>
 
 <ion-content >
@@ -47,22 +49,14 @@
 
   </ion-card>
 
-  <ion-grid class="scroll" >
-    <ion-row>
-      <ion-col>ID</ion-col>
-      <ion-col>Name</ion-col>
-      <ion-col>Email</ion-col>
-      <ion-col>Gender</ion-col>
-      <ion-col>AGE</ion-col>
-      <ion-col>Join Date</ion-col>
-    </ion-row>
-    <ion-row *ngFor="let item of list">
-      <ion-col>{{item.Id}}</ion-col>
-      <ion-col>{{item.Name}}</ion-col>
-      <ion-col>{{item.Email}}</ion-col>
-      <ion-col>{{item.Gender}}</ion-col>
-      <ion-col>{{item.Age}}</ion-col>
-      <ion-col>{{item.JoinDate}}</ion-col>
-    </ion-row>
-  </ion-grid>
-</ion-content>
+  <ion-card *ngFor="let item of list" (click)="selectedcard=item.Id ; collapsed=!collapsed" color="tertiary" class="ion-text-center " >
+    <ion-card-header> {{item.Name}}</ion-card-header>
+    <ion-card-content *ngIf="item.Id === selectedcard && !collapsed">
+      {{item.Email}}<br>
+      {{item.Gender}}<br>
+      {{item.Age}}<br>
+    </ion-card-content>
+  </ion-card>
+
+
+  </ion-content>
